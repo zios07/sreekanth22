@@ -8,10 +8,10 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>common.server</groupId>
-	<artifactId>common-server</artifactId>
+	<groupId>my-server</groupId>
+	<artifactId>my-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>common-server</name>
+	<name>my-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -31,7 +31,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
