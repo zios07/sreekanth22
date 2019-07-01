@@ -1,0 +1,57 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+
+      <!-- Default form contact -->
+      <form class="text-center border border-light p-5" *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()"
+        #questionForm="ngForm">
+
+        <p class="h4 mb-4">{{ formTitle }}</p>
+
+        <div class="md-form">
+          <input mdbInput type="text" formControlName="title" id="title" class="form-control">
+          <label for="title" class="">Title</label>
+        </div>
+
+        <div class="md-form">
+          <input mdbInput type="text" formControlName="category" id="category" class="form-control">
+          <label for="category" class="">Category</label>
+        </div>
+
+        <div class="md-form">
+          <textarea class="md-textarea form-control" formControlName="content" rows="3" id="input_text" type="text"
+            length="120" mdbCharCounter mdbInput></textarea>
+          <label for="input_text">Type the question here</label>
+        </div>
+
+        <div class="md-form">
+          <input mdbInput type="text" formControlName="option" id="option" class="form-control">
+          <label for="option" class="">Answer option</label>
+          <button [disabled]="!form.value.option" mdbBtn flobuttonting="true" size="sm" mdbWavesEffect
+            (click)="newOptionInput()">
+            <mdb-icon fas icon="plus"></mdb-icon>
+            <span>&nbsp;Add</span>
+          </button>
+        </div>
+        <h4>
+          <mdb-badge info="true" *ngFor="let option of options">{{option.value}}&nbsp;&nbsp;
+            <mdb-icon style="cursor: pointer" (click)="removeOption(option)" fas icon="trash"></mdb-icon>
+          </mdb-badge>&nbsp;&nbsp;
+        </h4>
+
+        <br><br>
+        <button class="btn btn-info btn-block" [disabled]="!form.valid" type="submit">Create quiz</button>
+
+      </form>
+      <!-- Default form contact -->
+
+      <mat-spinner *ngIf="submitted" mode="indeterminate"></mat-spinner>
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

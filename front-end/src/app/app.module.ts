@@ -1,7 +1,7 @@
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatListModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -14,6 +14,8 @@ import { LoginComponent } from './components/common/login/login.component';
 import { NavComponent } from './components/common/nav/nav.component';
 import { RegisterComponent } from './components/common/register/register.component';
 import { HttpInterceptorService } from './interceptors/http-interceptor.service';
+import { QuestionFormComponent } from './question/question-form/question-form.component';
+import { QuestionViewComponent } from './question/question-view/question-view.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HttpInterceptorService } from './interceptors/http-interceptor.service'
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    QuestionFormComponent,
+    QuestionViewComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,7 @@ import { HttpInterceptorService } from './interceptors/http-interceptor.service'
     MatNativeDateModule,
     MatButtonToggleModule,
     MatCheckboxModule,
+    MatListModule,
     ToastrModule.forRoot(),
     MDBBootstrapModule.forRoot()
   ],

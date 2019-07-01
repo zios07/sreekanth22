@@ -1,3 +1,21 @@
-<p>
-  home works!
-</p>
+<div *ngIf="auth.isAuthenticated()">
+    <mat-grid-list cols="5" rowHeight="2:2">
+        <mat-grid-tile *ngFor="let question of questions">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{question.title}}</mat-card-title>
+              <mat-card-subtitle>{{question.user?.account.username}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{question.content}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button [routerLink]="['/questions/view', question.id]">View and comment</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>
+<app-login *ngIf="!auth.isAuthenticated()"></app-login>

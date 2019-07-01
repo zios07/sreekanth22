@@ -17,5 +17,4 @@ public interface IAccountService {
 
 	List<Account> searchAccounts(Account account) throws NotFoundException;
 	
-	Account findAccountByUsername(String username) throws NotFoundException;
 }

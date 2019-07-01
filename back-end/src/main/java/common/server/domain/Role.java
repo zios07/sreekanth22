@@ -3,8 +3,10 @@ package common.server.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "ROLE_TABLE")
 public class Role {
 
 

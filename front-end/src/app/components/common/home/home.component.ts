@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { QuestionService } from 'src/app/services/question.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  questions;
+
+  constructor(
+    private auth: AuthenticationService,
+    private questionService: QuestionService,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
+    if (this.auth.isAuthenticated()) {
+      this.loadQuestions();
+    }
+  }
+
+  loadQuestions() {
+    this.questionService.loadQuestions().subscribe(resp => {
+      this.questions = resp;
+    })
   }
 
 }

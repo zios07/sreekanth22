@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class AccountService implements IAccountService {
-	
+
 	@Autowired
 	private AccountRepository repo;
 
@@ -22,7 +22,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public Account findAccount(long id) throws NotFoundException {
-		if(!repo.existsById(id))
+		if (!repo.existsById(id))
 			throw new NotFoundException("code", "message");
 		return repo.findById(id).get();
 	}
@@ -34,7 +34,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public void deleteAccount(long id) throws NotFoundException {
-		if(!repo.existsById(id))
+		if (!repo.existsById(id))
 			throw new NotFoundException("code", "message");
 		repo.deleteById(id);
 	}
@@ -43,14 +43,6 @@ public class AccountService implements IAccountService {
 	public List<Account> searchAccounts(Account accountDto) throws NotFoundException {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public Account findAccountByUsername(String username) throws NotFoundException {
-		Account account = repo.findByUsername(username);
-		if(account == null)
-			throw new NotFoundException("code", "message");
-		return account;
 	}
 
 }

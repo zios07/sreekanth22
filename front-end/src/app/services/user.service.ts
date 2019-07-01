@@ -23,7 +23,7 @@ export class UserService {
   }
 
   getAuthenticatedUser() {
-    return this.http.get(this.url + '/authenticated');
+    return this.http.get(this.url + '/find/connected');
   }
 
   getUsers() {

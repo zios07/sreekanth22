@@ -33,8 +33,8 @@ public class ServerApplication implements CommandLineRunner {
 			Role adminRole = roleRepository.save(new Role("ADMIN", "Administrator"));
 			Role userRole = roleRepository.save(new Role("USER", "User"));
 
-			Account account = new Account("admin@demo.com", encoder.encode("demo"));
-			Account account2 = new Account("user@demo.com", encoder.encode("demo"));
+			Account account = new Account("admin", encoder.encode("demo"));
+			Account account2 = new Account("user", encoder.encode("demo"));
 
 			User admin = new User();
 			admin.setRole(adminRole);

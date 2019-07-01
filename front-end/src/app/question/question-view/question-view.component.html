@@ -1,0 +1,48 @@
+<br><br><br>
+<mdb-card *ngIf="!loading" style="text-align: center">
+  <!--Card content-->
+  <mdb-card-body>
+
+    <!--Title-->
+    <mdb-card-title>
+      <h4>{{question.title}}</h4>
+      <h6>{{question.user.firstName}} {{question.user.lastName | uppercase}}
+        @{{question.user.account.username}}</h6>
+    </mdb-card-title>
+
+    <!--Text-->
+    <mdb-card-text>
+      <h5>
+        {{question.content}}</h5>
+    </mdb-card-text>
+
+    <hr>
+
+    <h5>Write your answer</h5>
+
+    <div>
+      <label for="">Possible answers : </label>
+      <mdb-badge info="true" *ngFor="let option of question.options">{{option.value}}&nbsp;&nbsp;
+      </mdb-badge>&nbsp;&nbsp;
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" #commentForm="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Write your comment" formControlName="comment" />
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" mdbBtn [disabled]="!commentForm.form.valid" mdbWavesEffect color="primary">Comment</button>
+    </form>
+
+    <hr>
+    <h6>Comments</h6>
+    <mat-list>
+      <mat-list-item *ngFor="let comment of question.comments">
+        <mat-icon mat-list-icon>comment</mat-icon>
+        {{comment.value}} - &nbsp;<mdb-badge default="true">{{comment.user.account.username}}Ø</mdb-badge>
+      </mat-list-item>
+    </mat-list>
+
+
+  </mdb-card-body>
+</mdb-card>
